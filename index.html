@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Scegli il tuo regalo 🎁</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#f2f2f2;
+  padding:20px;
+  text-align:center;
+}
+
+h1{
+  margin-bottom:10px;
+}
+
+.grid{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.gift{
+  background:white;
+  padding:25px;
+  border-radius:14px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.15);
+  cursor:pointer;
+  width:160px;
+  font-size:1.3rem;
+  transition:transform .15s ease;
+  user-select:none;
+}
+
+.gift:hover{
+  transform:scale(1.07);
+}
+
+#result{
+  margin-top:40px;
+  font-size:1.7rem;
+  font-weight:bold;
+  min-height:40px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Scegli il tuo regalo 🎁</h1>
+<p>Clicca uno dei pacchi per scoprire il tuo regalo!</p>
+
+<div class="grid">
+  <div class="gift" onclick="reveal(0)">🎁 Pacco 1</div>
+  <div class="gift" onclick="reveal(1)">🎁 Pacco 2</div>
+  <div class="gift" onclick="reveal(2)">🎁 Pacco 3</div>
+</div>
+
+<div id="result"></div>
+
+<script>
+const gifts = [
+  "Gita fuori porta 🌄",
+  "Cena in un ristorante in Città Alta 🍝",
+  "Sorpresa! 🎉"
+];
+
+function reveal(i){
+  const area = document.getElementById("result");
+  area.innerText = "Hai ricevuto: " + gifts[i];
+
+  area.style.opacity = 0;
+  setTimeout(() => {
+    area.style.opacity = 1;
+  }, 50);
+}
+</script>
+
+</body>
+</html>
